@@ -26,8 +26,8 @@ export interface QuizResults {
     topic: string;
     difficulty: Difficulty;
     accuracy: number;
-    questions?: Question[];
-    answers?: Record<number, number>;
+    questions: Question[];
+    answers: Record<number, number>;
 }
 
 export interface QuizHistoryItem {
