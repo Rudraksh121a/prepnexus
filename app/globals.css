@@ -1,0 +1,581 @@
+@import "tailwindcss";
+@source "../components";
+@source "../utils";
+@source "../lib";
+@source "../context";
+
+/* ============================================================
+   MINDFLOW QUIZ APP — PSYCHOLOGICAL COLOR & FONT THEME SYSTEM
+   Built on color psychology & cognitive UX principles
+   ============================================================ */
+
+:root {
+  /* ── BACKGROUNDS ────────────────────────────────────────── */
+  --bg-base: #0b0f1a;
+  --bg-surface: #111827;
+  --bg-elevated: #1a2236;
+  --bg-overlay: #1f2d45;
+  --bg-glass: rgba(255, 255, 255, 0.04);
+
+  /* ── BORDERS & DIVIDERS ─────────────────────────────────── */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-default: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(255, 255, 255, 0.18);
+
+  /* ── TEXT ───────────────────────────────────────────────── */
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-disabled: #334155;
+
+  /* ── PRIMARY — INDIGO/VIOLET ────────────────────────────── */
+  --primary-50: #eef2ff;
+  --primary-100: #e0e7ff;
+  --primary-200: #c7d2fe;
+  --primary-300: #a5b4fc;
+  --primary-400: #818cf8;
+  --primary-500: #6366f1;
+  --primary-600: #4f46e5;
+  --primary-700: #4338ca;
+  --primary-800: #3730a3;
+  --primary-900: #312e81;
+
+  --primary: var(--primary-500);
+  --primary-glow: rgba(99, 102, 241, 0.35);
+  --primary-soft: rgba(99, 102, 241, 0.12);
+
+  /* ── CALM — SKY BLUE ───────────────────────────────────── */
+  --calm-300: #7dd3fc;
+  --calm-400: #38bdf8;
+  --calm-500: #0ea5e9;
+  --calm-600: #0284c7;
+
+  --calm: var(--calm-400);
+  --calm-glow: rgba(56, 189, 248, 0.30);
+  --calm-soft: rgba(56, 189, 248, 0.10);
+
+  /* ── ENERGY — ROSE/PINK ─────────────────────────────────── */
+  --energy-300: #f9a8d4;
+  --energy-400: #f472b6;
+  --energy-500: #ec4899;
+  --energy-600: #db2777;
+
+  --energy: var(--energy-400);
+  --energy-glow: rgba(244, 114, 182, 0.30);
+  --energy-soft: rgba(244, 114, 182, 0.10);
+
+  /* ── SUCCESS — EMERALD ─────────────────────────────────── */
+  --success-300: #6ee7b7;
+  --success-400: #34d399;
+  --success-500: #10b981;
+  --success-600: #059669;
+
+  --success: var(--success-400);
+  --success-glow: rgba(52, 211, 153, 0.30);
+  --success-soft: rgba(52, 211, 153, 0.10);
+
+  /* ── WARNING — AMBER ───────────────────────────────────── */
+  --warn-300: #fcd34d;
+  --warn-400: #fbbf24;
+  --warn-500: #f59e0b;
+  --warn-600: #d97706;
+
+  --warn: var(--warn-400);
+  --warn-glow: rgba(251, 191, 36, 0.30);
+  --warn-soft: rgba(251, 191, 36, 0.10);
+
+  /* ── DANGER — RED ──────────────────────────────────────── */
+  --danger-300: #fca5a5;
+  --danger-400: #f87171;
+  --danger-500: #ef4444;
+  --danger-600: #dc2626;
+
+  --danger: var(--danger-400);
+  --danger-glow: rgba(248, 113, 113, 0.30);
+  --danger-soft: rgba(248, 113, 113, 0.10);
+
+  /* ── GRADIENTS ─────────────────────────────────────────── */
+  --gradient-brand: linear-gradient(135deg, #6366f1 0%, #38bdf8 100%);
+  --gradient-energy: linear-gradient(135deg, #f472b6 0%, #6366f1 100%);
+  --gradient-success: linear-gradient(135deg, #34d399 0%, #0ea5e9 100%);
+  --gradient-warn: linear-gradient(135deg, #fbbf24 0%, #f472b6 100%);
+  --gradient-dark: linear-gradient(135deg, #1a2236 0%, #0b0f1a 100%);
+  --gradient-card: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(56, 189, 248, 0.07) 100%);
+
+  /* ── SEMANTIC QUIZ STATES ──────────────────────────────── */
+  --quiz-idle: var(--bg-glass);
+  --quiz-hover: rgba(99, 102, 241, 0.10);
+  --quiz-selected: rgba(99, 102, 241, 0.18);
+  --quiz-correct: rgba(52, 211, 153, 0.15);
+  --quiz-wrong: rgba(248, 113, 113, 0.15);
+  --quiz-skipped: rgba(251, 191, 36, 0.10);
+
+  /* ── SHADOWS ───────────────────────────────────────────── */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.45);
+  --shadow-primary: 0 8px 30px rgba(99, 102, 241, 0.40);
+  --shadow-success: 0 8px 24px rgba(52, 211, 153, 0.35);
+  --shadow-danger: 0 8px 24px rgba(248, 113, 113, 0.35);
+
+  /* ── SPACING & SHAPE ───────────────────────────────────── */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* ── TYPOGRAPHY ────────────────────────────────────────── */
+  --font-display: var(--font-syne), sans-serif;
+  --font-body: var(--font-dm-sans), sans-serif;
+  --font-mono: var(--font-jetbrains), monospace;
+
+  /* Font sizes */
+  --text-xs: 0.70rem;
+  --text-sm: 0.80rem;
+  --text-base: 0.90rem;
+  --text-md: 1.00rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.30rem;
+  --text-2xl: 1.60rem;
+  --text-3xl: 2.00rem;
+  --text-4xl: 2.50rem;
+
+  /* Font weights */
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+
+  /* Line heights */
+  --leading-tight: 1.20;
+  --leading-snug: 1.35;
+  --leading-normal: 1.55;
+  --leading-loose: 1.75;
+
+  /* Letter spacing */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.05em;
+  --tracking-wider: 0.10em;
+
+  /* ── TRANSITIONS ───────────────────────────────────────── */
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 400ms;
+
+  /* ── AMBIENT BACKGROUND GLOW ───────────────────────────── */
+  --ambient-bg:
+    radial-gradient(ellipse 65% 50% at 15% 20%, rgba(99, 102, 241, 0.18) 0%, transparent 65%),
+    radial-gradient(ellipse 45% 40% at 85% 80%, rgba(244, 114, 182, 0.12) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 45% at 65% 10%, rgba(56, 189, 248, 0.10) 0%, transparent 65%),
+    #0b0f1a;
+}
+
+.light {
+  --bg-base: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-elevated: #f1f5f9;
+  --bg-overlay: #e2e8f0;
+  --bg-glass: rgba(0, 0, 0, 0.03);
+
+  --border-subtle: rgba(0, 0, 0, 0.05);
+  --border-default: rgba(0, 0, 0, 0.09);
+  --border-strong: rgba(0, 0, 0, 0.16);
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --text-disabled: #cbd5e1;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.07);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.10);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.12);
+
+  --ambient-bg:
+    radial-gradient(ellipse 70% 55% at 10% 10%, rgba(99, 102, 241, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 45% at 90% 90%, rgba(244, 114, 182, 0.05) 0%, transparent 60%),
+    #f8fafc;
+}
+
+@theme inline {
+  --color-background: var(--bg-base);
+  --color-foreground: var(--text-primary);
+  --font-sans: var(--font-body), var(--font-geist-sans);
+  --font-mono: var(--font-mono), var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-primary-500: var(--primary-500);
+}
+
+/* ============================================================
+   TYPOGRAPHY — BASE RESET & DEFAULTS
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
+  color: var(--text-primary);
+  background: var(--ambient-bg);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* ── Headings ── */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-extrabold);
+}
+
+h2 {
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-extrabold);
+}
+
+h3 {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+}
+
+h4 {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+}
+
+h5 {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+}
+
+h6 {
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+}
+
+p {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+small {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  line-height: var(--leading-snug);
+}
+
+strong,
+b {
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+}
+
+em,
+i {
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+
+/* ============================================================
+   UTILITY CLASSES
+   ============================================================ */
+
+/* Backgrounds */
+.bg-base {
+  background-color: var(--bg-base);
+}
+
+.bg-surface {
+  background-color: var(--bg-surface);
+}
+
+.bg-elevated {
+  background-color: var(--bg-elevated);
+}
+
+.glass-panel,
+.bg-glass {
+  background: var(--bg-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Text */
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-primary-brand {
+  color: var(--primary-400);
+}
+
+.text-calm {
+  color: var(--calm);
+}
+
+.text-energy {
+  color: var(--energy);
+}
+
+.text-success {
+  color: var(--success);
+}
+
+.text-warn {
+  color: var(--warn);
+}
+
+.text-danger {
+  color: var(--danger);
+}
+
+/* Gradient text */
+.gradient-text,
+.gradient-text-brand {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-bg {
+  background: var(--ambient-bg);
+  background-attachment: fixed;
+}
+
+/* Borders */
+.border-subtle {
+  border: 1px solid var(--border-subtle);
+}
+
+.border-default {
+  border: 1px solid var(--border-default);
+}
+
+.border-primary {
+  border: 1px solid rgba(99, 102, 241, 0.35);
+}
+
+/* Quiz states */
+.state-idle {
+  background: var(--quiz-idle);
+  border: 1.5px solid var(--border-default);
+}
+
+.state-selected {
+  background: var(--quiz-selected);
+  border: 1.5px solid var(--primary);
+}
+
+.state-correct {
+  background: var(--quiz-correct);
+  border: 1.5px solid var(--success);
+}
+
+.state-wrong {
+  background: var(--quiz-wrong);
+  border: 1.5px solid var(--danger);
+}
+
+/* Glow effects */
+.glow-primary {
+  box-shadow: var(--shadow-primary);
+}
+
+.glow-success {
+  box-shadow: var(--shadow-success);
+}
+
+.glow-danger {
+  box-shadow: var(--shadow-danger);
+}
+
+/* Radii */
+.rounded-md {
+  border-radius: var(--radius-md);
+}
+
+.rounded-lg {
+  border-radius: var(--radius-lg);
+}
+
+.rounded-full {
+  border-radius: var(--radius-full);
+}
+
+/* ============================================================
+   TYPOGRAPHY — UTILITY CLASSES
+   ============================================================ */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Font sizes */
+.text-xs {
+  font-size: var(--text-xs);
+}
+
+.text-sm {
+  font-size: var(--text-sm);
+}
+
+.text-base {
+  font-size: var(--text-base);
+}
+
+.text-md {
+  font-size: var(--text-md);
+}
+
+.text-lg {
+  font-size: var(--text-lg);
+}
+
+.text-xl {
+  font-size: var(--text-xl);
+}
+
+.text-2xl {
+  font-size: var(--text-2xl);
+}
+
+.text-3xl {
+  font-size: var(--text-3xl);
+}
+
+.text-4xl {
+  font-size: var(--text-4xl);
+}
+
+/* Weights */
+.weight-light {
+  font-weight: var(--weight-light);
+}
+
+.weight-regular {
+  font-weight: var(--weight-regular);
+}
+
+.weight-medium {
+  font-weight: var(--weight-medium);
+}
+
+.weight-semibold {
+  font-weight: var(--weight-semibold);
+}
+
+.weight-bold {
+  font-weight: var(--weight-bold);
+}
+
+.weight-extrabold {
+  font-weight: var(--weight-extrabold);
+}
+
+/* Quiz-Specific Roles */
+.type-logo {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-extrabold);
+  letter-spacing: var(--tracking-tight);
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.type-hero {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-extrabold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+.type-question {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-snug);
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.type-option {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
+  color: var(--text-primary);
+}
+
+.type-score {
+  font-family: var(--font-mono);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+  font-variant-numeric: tabular-nums;
+}
+
+.type-btn {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.01em;
+}
